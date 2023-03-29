@@ -1,4 +1,10 @@
+VS INSTALL:
 .\vs_Community.exe --layout C:\Users\balh\Downloads\VSOffline --add Microsoft.VisualStudio.Workload.ManagedDesktop --add Microsoft.VisualStudio.Workload.CoreEditor --add Microsoft.VisualStudio.Workload.NetWeb --add Microsoft.Net.Component.3.5.DeveloperTools --add Microsoft.Net.Core.Component.SDK.2.1 --add Microsoft.NetCore.Component.Runtime.3.1 --add Microsoft.VisualStudio.Workload.Data --includeOptional --includeRecommended --lang en-US
 .\VSOffline\vs_Community.exe --noWeb --add Microsoft.VisualStudio.Workload.ManagedDesktop --add Microsoft.VisualStudio.Workload.CoreEditor --add Microsoft.VisualStudio.Workload.NetWeb --add Microsoft.Net.Component.3.5.DeveloperTools --add Microsoft.Net.Core.Component.SDK.2.1 --add Microsoft.NetCore.Component.Runtime.3.1 --add Microsoft.VisualStudio.Workload.Data --includeOptional --includeRecommended -q --norestart
 setx /M PATH $($Env:PATH + 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin')
 setx /M PATH $($Env:PATH + 'C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\TestPlatform') 
+
+STYLECOP:
+COPY stylecop.msbuild.4.7.14.nupkg C:/Users/ContainerAdministrator/Documents
+RUN Expand-Archive -Path C:/Users/ContainerAdministrator/Documents/stylecop.msbuild.4.7.14.nupkg -DestinationPath 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\StyleCop\v4.7'
+RUN Expand-Archive -Path C:/Users/ContainerAdministrator/Documents/stylecop.msbuild.4.7.14.nupkg -DestinationPath 'C:\Program Files\MSBuild\StyleCop\v4.7'
